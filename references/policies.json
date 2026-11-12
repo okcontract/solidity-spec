@@ -1,0 +1,246 @@
+{
+  "schema": "oksolc.solidity-fixed-policies.v1",
+  "referenceCompilerVersion": "0.8.36+commit.8a079791",
+  "referenceCompilerCommit": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+  "target": "../target.json",
+  "referenceLock": "lock.json",
+  "module": "../Solidity/Policy.lean",
+  "configuration": "Solidity 0.8.36, Cancun, viaIR=true; optimizer disabled or enabled with 200 runs. Legacy code generation is outside this profile.",
+  "assurance": "Policy ownership and pinned source provenance; semantic adequacy and emitted-code preservation are separate obligations.",
+  "sources": [
+    {
+      "id": "language-control",
+      "authority": "languageDocumentation",
+      "lockedReference": "solidity:docs/control-structures.rst"
+    },
+    {
+      "id": "upstream-ir",
+      "authority": "referenceCompilerImplementation",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "path": "libsolidity/codegen/ir/IRGeneratorForStatements.cpp",
+      "url": "https://raw.githubusercontent.com/argotorg/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/libsolidity/codegen/ir/IRGeneratorForStatements.cpp",
+      "retainedSnapshot": false,
+      "identity": "Immutable Git revision and path; not an additional bundled reference-lock snapshot."
+    },
+    {
+      "id": "upstream-types",
+      "authority": "referenceCompilerImplementation",
+      "lockedReference": "solidity:libsolidity/ast/Types.cpp"
+    },
+    {
+      "id": "upstream-constants",
+      "authority": "referenceCompilerImplementation",
+      "lockedReference": "solidity:libsolidity/analysis/ConstantEvaluator.cpp"
+    },
+    {
+      "id": "upstream-syntax",
+      "authority": "referenceCompilerImplementation",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "path": "libsolidity/analysis/SyntaxChecker.cpp",
+      "url": "https://raw.githubusercontent.com/argotorg/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/libsolidity/analysis/SyntaxChecker.cpp",
+      "retainedSnapshot": false,
+      "identity": "Immutable Git revision and path; not an additional bundled reference-lock snapshot."
+    }
+  ],
+  "languagePermissions": [
+    {
+      "id": "eager-child-selection",
+      "source": "language-control",
+      "lines": [
+        321,
+        328
+      ],
+      "rule": "Eager children precede the parent; their mutual evaluation order is unspecified. Statements are sequenced and Boolean evaluation short-circuits.",
+      "owners": [
+        "Solidity.Core.Execution.SelectionLaws",
+        "Solidity.Core.Execution.Admission"
+      ],
+      "boundary": "This permission does not reorder a parent operation\u2019s stores or grant a type/operator conversion."
+    },
+    {
+      "id": "operator-conversion-location-permissions",
+      "owners": [
+        "Solidity.Core.Conversions",
+        "Solidity.Core.Operators",
+        "Solidity.Core.Aggregates.Transfers",
+        "Solidity.Core.Execution.Admission"
+      ],
+      "rule": "Existing independent typing and placement judgments decide source permission; fixed implementation policies do not replace those judgments."
+    }
+  ],
+  "policies": [
+    {
+      "id": "tuple-parent-stores",
+      "owner": "Solidity.Policy.Solc0836.tupleCommit",
+      "choice": "Reverse source component order after RHS values and destination captures are ready.",
+      "consumers": [
+        "Solidity/Core/Execution/Machine.lean:tupleCommitValue",
+        "Solidity/Core/Execution/Machine.lean:tupleCommitPattern"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-ir",
+          "symbol": "IRGeneratorForStatements::writeToLValue",
+          "locator": "Named function in the immutable source revision; line offsets are not authoritative."
+        }
+      ],
+      "reproduce": {
+        "cases": [
+          "tuple_same_target",
+          "tuple_storage_copies"
+        ],
+        "module": "Solidity.Conformance.Effects"
+      },
+      "boundary": "Explicit return conversions retain declaration order; independent child selection is separate."
+    },
+    {
+      "id": "inline-array-phases",
+      "owner": "Solidity.Policy.Solc0836.inlineArrayPhases",
+      "choice": "Allocate the root before child evaluation; convert/store each selected element before selecting another.",
+      "consumers": [
+        "Solidity/Core/Execution/Machine.lean:inlineArray",
+        "Solidity/Core/Execution/Constructors.lean:allocateArray"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-ir",
+          "symbol": "IRGeneratorForStatements::visit(TupleExpression)",
+          "locator": "Named function in the immutable source revision; line offsets are not authoritative."
+        }
+      ],
+      "reproduce": {
+        "cases": [
+          "inline_array_effects"
+        ],
+        "module": "Solidity.Conformance.Effects"
+      },
+      "boundary": "The descriptor documents existing transitions; it is not interpreted as a configurable execution plan."
+    },
+    {
+      "id": "struct-constructor-phases",
+      "owner": "Solidity.Policy.Solc0836.structConstructorPhases",
+      "choice": "Evaluate all raw arguments, allocate the root, then convert/store members in declaration order.",
+      "consumers": [
+        "Solidity/Core/Execution/Machine.lean:structConstructor",
+        "Solidity/Core/Execution/Constructors.lean:allocateStruct"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-ir",
+          "symbol": "IRGeneratorForStatements::endVisit(FunctionCall)",
+          "locator": "Named function in the immutable source revision; line offsets are not authoritative."
+        }
+      ],
+      "reproduce": {
+        "cases": [
+          "named_struct_constructor_effects",
+          "struct_argument_conversion_after_effects"
+        ],
+        "module": "Solidity.Conformance.Effects"
+      },
+      "boundary": "Raw argument selection may vary; member association and parent conversion/store phases do not."
+    },
+    {
+      "id": "rational-resource-limits",
+      "owners": [
+        "Solidity.Policy.Solc0836.rationalMaxBitIndex",
+        "Solidity.Policy.Solc0836.rationalWorkBits",
+        "Solidity.Policy.Solc0836.arithmeticExponentBits"
+      ],
+      "choice": "Normalized rational numerator/denominator use highest-bit index 4096; operation work guards use 4096 bits and unsigned 32-bit magnitudes.",
+      "consumers": [
+        "Solidity/Frontend/Literal.lean:withinPrecision",
+        "Solidity/Frontend/Literal.lean:fitsExponent",
+        "Solidity/Frontend/Literal.lean:Binary.compute"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-types",
+          "symbol": "RationalNumberType::binaryOperatorResult",
+          "lines": [
+            1127,
+            1129
+          ]
+        },
+        {
+          "source": "upstream-constants",
+          "symbol": "fitsPrecisionExp / binaryOperation",
+          "lines": [
+            47,
+            196
+          ]
+        }
+      ],
+      "reproduce": {
+        "fixtures": [
+          "Solidity/Frontend/LiteralTests.lean"
+        ]
+      },
+      "boundary": "Compiler admission/work policy, not runtime arithmetic overflow or a language-wide mathematical bound."
+    },
+    {
+      "id": "numeric-spelling-compatibility",
+      "owners": [
+        "Solidity.Policy.Solc0836.numericSeparatorExclusions",
+        "Solidity.Policy.Solc0836.scientificExponentRadix",
+        "Solidity.Policy.Solc0836.scientificExponentMagnitudeBits"
+      ],
+      "choice": "Case-sensitive underscore exclusions and bigint-style leading-zero radix; nonzero exponent magnitudes fit signed 32-bit admission. Zero bypass and nonzero plus rejection remain explicit in Lexical.scientific.",
+      "consumers": [
+        "Solidity/Frontend/Lexical.lean:separators",
+        "Solidity/Frontend/Lexical.lean:scientific"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-types",
+          "symbol": "RationalNumberType::isValidLiteral",
+          "lines": [
+            925,
+            955
+          ]
+        },
+        {
+          "source": "upstream-syntax",
+          "symbol": "SyntaxChecker::visit(Literal)"
+        }
+      ],
+      "reproduce": {
+        "fixtures": [
+          "Solidity/Frontend/ResolvedTests.lean"
+        ],
+        "module": "Solidity.Conformance.Inference"
+      },
+      "boundary": "Pinned implementation quirks are distinguished from general numeric-token grammar; no verified lexer claim."
+    },
+    {
+      "id": "decimal-precision-reification",
+      "owners": [
+        "Solidity.Policy.Solc0836.binary64SignificandBits",
+        "Solidity.Policy.Solc0836.decimalLog2Numerator",
+        "Solidity.Policy.Solc0836.decimalLog2Denominator"
+      ],
+      "choice": "Exact integer reification of the stored binary64 log2(10) constant and rounded product.",
+      "consumers": [
+        "Solidity/Frontend/Lexical.lean:round53",
+        "Solidity/Frontend/Lexical.lean:decimalExponentBits"
+      ],
+      "provenance": [
+        {
+          "source": "upstream-types",
+          "symbol": "fitsPrecisionBase10",
+          "lines": [
+            65,
+            70
+          ]
+        }
+      ],
+      "reproduce": {
+        "fixtures": [
+          "Solidity/Frontend/ResolvedTests.lean"
+        ],
+        "module": "Solidity.Conformance.Inference"
+      },
+      "boundary": "Equivalence to every host-library computation is an adequacy obligation; boundary tests are evidence, not a universal host-arithmetic proof."
+    }
+  ]
+}

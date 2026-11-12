@@ -1,0 +1,591 @@
+{
+  "schema": "oksolc.solidity-semantics-references.v1",
+  "solidityVersion": "0.8.36",
+  "referenceCompilerCommit": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+  "evmVersion": "cancun",
+  "references": [
+    {
+      "id": "solidity:LICENSE.txt",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/LICENSE.txt",
+      "snapshot": "references/solidity/LICENSE.txt",
+      "sha256": "0ae0485a5bd37a63e63603596417e4eb0e653334fa6c7f932ca3a0e85d4af227"
+    },
+    {
+      "id": "solidity:docs/types.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/types.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/types.rst",
+      "snapshot": "references/solidity/docs/types.rst",
+      "sha256": "5bd5fd53fc2948696b5b138b904b05da5c462e49e839a5407df8f0f55a17b6ee",
+      "role": "indexOnly",
+      "unvendoredIncludes": [
+        "types/value-types.rst",
+        "types/reference-types.rst",
+        "types/mapping-types.rst",
+        "types/operators.rst",
+        "types/conversion.rst"
+      ]
+    },
+    {
+      "id": "solidity:docs/control-structures.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/control-structures.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/control-structures.rst",
+      "snapshot": "references/solidity/docs/control-structures.rst",
+      "sha256": "b05356597e0db4b751de5a433f68b55889e37441556ee6cbf9ed32d7c49fa647"
+    },
+    {
+      "id": "solidity:docs/abi-spec.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/abi-spec.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/abi-spec.rst",
+      "snapshot": "references/solidity/docs/abi-spec.rst",
+      "sha256": "bda1c34bf57f3c63e426486e688bf24feda1c8fe439209df1cb4dec8c884eb79"
+    },
+    {
+      "id": "solidity:docs/contracts.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/contracts.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/contracts.rst",
+      "snapshot": "references/solidity/docs/contracts.rst",
+      "sha256": "6769149115faae52233516174169338995dc7a2a2793073c615a317e25b19279",
+      "role": "indexOnly",
+      "unvendoredIncludes": [
+        "contracts/creating-contracts.rst",
+        "contracts/visibility-and-getters.rst",
+        "contracts/function-modifiers.rst",
+        "contracts/transient-storage.rst",
+        "contracts/constant-state-variables.rst",
+        "contracts/custom-storage-layout.rst",
+        "contracts/functions.rst",
+        "contracts/events.rst",
+        "contracts/errors.rst",
+        "contracts/inheritance.rst",
+        "contracts/abstract-contracts.rst",
+        "contracts/interfaces.rst",
+        "contracts/libraries.rst",
+        "contracts/using-for.rst"
+      ]
+    },
+    {
+      "id": "solidity:docs/assembly.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/assembly.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/assembly.rst",
+      "snapshot": "references/solidity/docs/assembly.rst",
+      "sha256": "3321ef873879ec51fe502a71b10dc3b7c346171162ca50589158b41513d4bb59"
+    },
+    {
+      "id": "solidity:docs/yul.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/yul.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/yul.rst",
+      "snapshot": "references/solidity/docs/yul.rst",
+      "sha256": "2ee4be05257b609b8bb79ae63ba12879c9639879e4c0191c3451f902e86b6781"
+    },
+    {
+      "id": "solidity:docs/units-and-global-variables.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/units-and-global-variables.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/units-and-global-variables.rst",
+      "snapshot": "references/solidity/docs/units-and-global-variables.rst",
+      "sha256": "db1b3edb9e47754ad5e30a077cdbda99c16fea764b13f0188e67e9e7352399a8"
+    },
+    {
+      "id": "solidity:docs/layout-of-source-files.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/layout-of-source-files.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/layout-of-source-files.rst",
+      "snapshot": "references/solidity/docs/layout-of-source-files.rst",
+      "sha256": "a96f05182f44b35e01107d9dd470aa268af7f3f2a742b23940c5fd5cdd725938"
+    },
+    {
+      "id": "solidity:docs/structure-of-a-contract.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/structure-of-a-contract.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/structure-of-a-contract.rst",
+      "snapshot": "references/solidity/docs/structure-of-a-contract.rst",
+      "sha256": "69bc9abd467138cf5bdbae333af13afac6566199890e847134d4c59cfe38c0d9"
+    },
+    {
+      "id": "solidity:docs/internals/layout_in_storage.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/internals/layout_in_storage.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/internals/layout_in_storage.rst",
+      "snapshot": "references/solidity/docs/internals/layout_in_storage.rst",
+      "sha256": "1c893f2a89ea6d540367aa1533177e32d0407eda2dc599e6024c66266a36a6ea"
+    },
+    {
+      "id": "solidity:docs/internals/layout_in_memory.rst",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/internals/layout_in_memory.rst",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/internals/layout_in_memory.rst",
+      "snapshot": "references/solidity/docs/internals/layout_in_memory.rst",
+      "sha256": "0ff58979798007d0bd3921f2b9a2b708877d19bea2a7d94b875652ddf28c25f7"
+    },
+    {
+      "id": "solidity:docs/grammar/SolidityLexer.g4",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/grammar/SolidityLexer.g4",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/grammar/SolidityLexer.g4",
+      "snapshot": "references/solidity/docs/grammar/SolidityLexer.g4",
+      "sha256": "6f07d9254b8a1eda846586b1a7da2c29cecefce14a8d1305952e72613a3e5427"
+    },
+    {
+      "id": "solidity:docs/grammar/SolidityParser.g4",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "docs/grammar/SolidityParser.g4",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/docs/grammar/SolidityParser.g4",
+      "snapshot": "references/solidity/docs/grammar/SolidityParser.g4",
+      "sha256": "663afb0d91d482a886a6879c801ba6b6f83f34e250d3e8d9406b1ab198272b6a"
+    },
+    {
+      "id": "solidity:libsolidity/ast/Types.cpp",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "libsolidity/ast/Types.cpp",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/libsolidity/ast/Types.cpp",
+      "snapshot": "references/solidity/libsolidity/ast/Types.cpp",
+      "sha256": "996db198ff01766ebbdd7fa1490a75dec38dd828bc94ef2dfde1e111fecdcc50"
+    },
+    {
+      "id": "solidity:libsolidity/analysis/ConstantEvaluator.cpp",
+      "repository": "ethereum/solidity",
+      "revision": "8a079791d9cca7a6c03fd6a8429b93aa3bddefed",
+      "upstreamPath": "libsolidity/analysis/ConstantEvaluator.cpp",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/8a079791d9cca7a6c03fd6a8429b93aa3bddefed/libsolidity/analysis/ConstantEvaluator.cpp",
+      "snapshot": "references/solidity/libsolidity/analysis/ConstantEvaluator.cpp",
+      "sha256": "3887b64f382c61cf96696dee74d6db457f29db6cb47c3bd337347242f50590c2"
+    },
+    {
+      "id": "execution-specs:LICENSE.md",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/LICENSE.md",
+      "snapshot": "references/execution-specs/LICENSE.md",
+      "sha256": "f81577cb97c59ed748f9117fa839b80e3be0ec605a4b66c234e07468bc011808"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/__init__.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/__init__.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/__init__.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/__init__.py",
+      "sha256": "372e76f29746fde7b589e520609518d0a004da4475a3a2d24d6763f510bc96ba"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/blocks.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/blocks.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/blocks.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/blocks.py",
+      "sha256": "d8d94cb0d39d3bab97118e6d1de90eb44b905a60cfc441673cf35b1827065f81"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/bloom.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/bloom.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/bloom.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/bloom.py",
+      "sha256": "c594a4d3252e9f0126e9952e09a3575309780c8e086296c0b74682033ebe9a76"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/exceptions.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/exceptions.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/exceptions.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/exceptions.py",
+      "sha256": "b0519cd7800185c0215cdfe93ebf196756036afab406e885f7ef05063fd8769e"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/fork.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/fork.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/fork.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/fork.py",
+      "sha256": "cf92552833122266977c6ecf933e26845ff9240fcb8e7a54461bb5c8c788ad62"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/fork_types.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/fork_types.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/fork_types.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/fork_types.py",
+      "sha256": "f862f1b00d91551b1ffa077543537ec150a3343e67c00e262032e0e130bb70bc"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/state_tracker.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/state_tracker.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/state_tracker.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/state_tracker.py",
+      "sha256": "98ce4eda0fece360921a866c1b05f3bc957a9107fc97a803480e5ea75f470181"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/transactions.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/transactions.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/transactions.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/transactions.py",
+      "sha256": "6080f999bfc29ac22a4dbb9b8b40357e64cd29ad2c655de85a05b6381099efbe"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/utils/__init__.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/utils/__init__.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/utils/__init__.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/utils/__init__.py",
+      "sha256": "bb6131a66d7f7c253a52ed45dbc36f88be31a6a74232afe50784df33796c4983"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/utils/address.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/utils/address.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/utils/address.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/utils/address.py",
+      "sha256": "f80601bfcff211dacbe6e2e4aeac5f324d77965e0e40a36a3aaa6d8ec755be98"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/utils/hexadecimal.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/utils/hexadecimal.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/utils/hexadecimal.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/utils/hexadecimal.py",
+      "sha256": "8cf00ab6f820abd892d2833a60eee4841d5e6e774ef28c6279a0ea1e06b85afe"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/utils/message.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/utils/message.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/utils/message.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/utils/message.py",
+      "sha256": "3394c4ff1da32f4d72ad0f1b21e547d9dfc84e0859b4bb223ab1432e1e67351b"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/__init__.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/__init__.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/__init__.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/__init__.py",
+      "sha256": "1f937cba0b2d4070c731a02be21bacd09f2dd318eec5289525c172108be197f6"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/exceptions.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/exceptions.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/exceptions.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/exceptions.py",
+      "sha256": "e3e4b0b24c5b5702a64851d2ac675d1d2fc526aa3f1a439b17d5c2d22c569a01"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/gas.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/gas.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/gas.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/gas.py",
+      "sha256": "404361c06b0936e9d3155bb941a21d19128eed51b115e07cdf632557794aad70"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/__init__.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/__init__.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/__init__.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/__init__.py",
+      "sha256": "6803bc7d2dfcb03101cc5aa4cf2ef686c53da7246518023b8e97c0066c5b1770"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/arithmetic.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/arithmetic.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/arithmetic.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/arithmetic.py",
+      "sha256": "74c2d10f281a9460dac1b377b22dd35740eb44107da190cab0f3b57758dbf61e"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/bitwise.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/bitwise.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/bitwise.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/bitwise.py",
+      "sha256": "96ed4f68ee6e0efe6cb2927a93373b5e1111fe5eb183031560df31f52658e6ed"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/block.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/block.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/block.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/block.py",
+      "sha256": "299ca6ed3ad79e3a3b2c8992744e84bb70c781beb1af0804a7dc4bfdab1e9801"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/comparison.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/comparison.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/comparison.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/comparison.py",
+      "sha256": "dd46a314c54707438095d50122b13b12f3f15b9442ebfd700c80953ca1b58de5"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/control_flow.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/control_flow.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/control_flow.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/control_flow.py",
+      "sha256": "0d3f6ae0cc4f0bc93b848ab6d68f19b85ee9e5f843a2cbcd699b08a8e35e5b98"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/environment.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/environment.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/environment.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/environment.py",
+      "sha256": "a01c01b4266eed06bff799ef5886f86d7103ee8599f4e7fcba5b11a9b631669d"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/keccak.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/keccak.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/keccak.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/keccak.py",
+      "sha256": "20782f30d82dc2821af5d69b9ada9c8645c6b0b9aacf60153d265c843d056914"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/log.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/log.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/log.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/log.py",
+      "sha256": "2a17b97ec7e5471c75e15c4dc3ec6e77b7b3bb647e8123d62adf9bd8447a6a04"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/memory.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/memory.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/memory.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/memory.py",
+      "sha256": "1e9334f8dcf50b8a795c9dfd21ff11d5412949bda57f2e7755338b3497a9073e"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/stack.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/stack.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/stack.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/stack.py",
+      "sha256": "e48d9778a6fb2a95d9ab83254282093d5ac7ff1579456d562b64272a1471d6b7"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/storage.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/storage.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/storage.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/storage.py",
+      "sha256": "d334b3000cedde123b9e85dd260717d1388d52ce5d4b59e66151c25ce09cfc2c"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/instructions/system.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/instructions/system.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/instructions/system.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/instructions/system.py",
+      "sha256": "301d8e7b599a2390c8f1a508e0243ee2ff3b8dc41065fffbc3756230292b4e5c"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/interpreter.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/interpreter.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/interpreter.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/interpreter.py",
+      "sha256": "98dc038e5b043eeacc4ca77c9fa014e81bcf7d1d1ffec38e25216e458417a067"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/memory.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/memory.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/memory.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/memory.py",
+      "sha256": "d4731a501822f2962c7e9c305ed8b3fc1956cea9ddc8bb3237574ff8b00f7a3c"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/__init__.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/__init__.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/__init__.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/__init__.py",
+      "sha256": "ff8f91a83bf2613d4b5b0ab0d6a5cbea7c5f0aab7a42f6f51a1add2cee98ddee"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/alt_bn128.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/alt_bn128.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/alt_bn128.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/alt_bn128.py",
+      "sha256": "18b4a8668d3f0743aae500166fe8f39115cc993a576ed09c4718d31ece7705dc"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/blake2f.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/blake2f.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/blake2f.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/blake2f.py",
+      "sha256": "b164dc8759451bca5cb7667595cef60613f015f9b43c90da2f65b6962e8e4f4c"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/ecrecover.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/ecrecover.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/ecrecover.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/ecrecover.py",
+      "sha256": "9c7ce6e77637067a3a19bc8a1ee1f0a466ff696c71145c1bfecea3b9e7a2b244"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/identity.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/identity.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/identity.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/identity.py",
+      "sha256": "1b64429976aa18b79de220f3d1bf4214c2de256ad5670f46065d692ff8ffd72d"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/mapping.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/mapping.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/mapping.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/mapping.py",
+      "sha256": "5821ef4401f4bd7c2b988ff0fd4f2ac434d51cfeb3e9848c53cdf3a9f4655027"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/modexp.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/modexp.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/modexp.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/modexp.py",
+      "sha256": "e1f7bd0ea033a6ab3155616bb83f1ec96c4d7c41e85a5b70070ea9c64bc01677"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/point_evaluation.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/point_evaluation.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/point_evaluation.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/point_evaluation.py",
+      "sha256": "69f032e9f81333bf5591c81063cb180b4faafe560c7bc866f05e7b57e73b169a"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/ripemd160.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/ripemd160.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/ripemd160.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/ripemd160.py",
+      "sha256": "6f4524ecfa5432959cd796c9c8902c6d196643c74beec8201c7b6f48decfad2d"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/precompiled_contracts/sha256.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/precompiled_contracts/sha256.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/precompiled_contracts/sha256.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/precompiled_contracts/sha256.py",
+      "sha256": "c33de9ec5d03079772350833157977b7311e792d6c9692124c9420bbbd315e3a"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/runtime.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/runtime.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/runtime.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/runtime.py",
+      "sha256": "a2801c4169b806a9494707179a9df20170a37a1769596aac56013ddba509aef8"
+    },
+    {
+      "id": "execution-specs:src/ethereum/forks/cancun/vm/stack.py",
+      "repository": "ethereum/execution-specs",
+      "revision": "a7dbafac0c0ec82e7b2e20959cc7c00ce958442a",
+      "upstreamPath": "src/ethereum/forks/cancun/vm/stack.py",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-specs/a7dbafac0c0ec82e7b2e20959cc7c00ce958442a/src/ethereum/forks/cancun/vm/stack.py",
+      "snapshot": "references/execution-specs/src/ethereum/forks/cancun/vm/stack.py",
+      "sha256": "a4fd668da799fd31b3c7efd4fb16de91a5d1876e7a6c995af934b5e30c6c608e"
+    },
+    {
+      "id": "execution-spec-tests:LICENSE",
+      "repository": "ethereum/execution-spec-tests",
+      "revision": "10eaa63d5da2f50b63d4359968f36542212f9f50",
+      "upstreamPath": "LICENSE",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-spec-tests/10eaa63d5da2f50b63d4359968f36542212f9f50/LICENSE",
+      "snapshot": "references/execution-spec-tests/LICENSE",
+      "sha256": "311a5b206cfa2f48af8084c8fb96b417e6b0034362a1319fc3757826d6042427"
+    },
+    {
+      "id": "execution-spec-tests:README.md",
+      "repository": "ethereum/execution-spec-tests",
+      "revision": "10eaa63d5da2f50b63d4359968f36542212f9f50",
+      "upstreamPath": "README.md",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-spec-tests/10eaa63d5da2f50b63d4359968f36542212f9f50/README.md",
+      "snapshot": "references/execution-spec-tests/README.md",
+      "sha256": "9bd19ba8e9352d299b3fe4db7eaa09c8dae3f4ddbd04475b4307c205fb5d425b"
+    },
+    {
+      "id": "cancun-tests-tree",
+      "repository": "ethereum/execution-spec-tests",
+      "revision": "10eaa63d5da2f50b63d4359968f36542212f9f50",
+      "upstreamPath": "tests/cancun/",
+      "url": "https://github.com/ethereum/execution-spec-tests/tree/10eaa63d5da2f50b63d4359968f36542212f9f50/tests/cancun",
+      "snapshot": "references/execution-spec-tests/cancun-tree.json",
+      "sha256": "0550ebd656eac0833679c3fd948bf18c31090276dc1945d166c27bc5f61365c8"
+    }
+  ]
+}

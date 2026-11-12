@@ -1,0 +1,10 @@
+{
+  "schema": "oksolc.solidity-semantics-target.v1",
+  "solidityVersion": "0.8.36",
+  "referenceCompilerVersion": "0.8.36+commit.8a079791",
+  "evmVersion": "cancun",
+  "viaIR": true,
+  "optimizerRuns": 200,
+  "optimizerEnabled": [false, true],
+  "leanVersion": "4.29.0"
+}

@@ -1,0 +1,5 @@
+/.lake/
+/paper/build/
+/evidence/
+__pycache__/
+.DS_Store

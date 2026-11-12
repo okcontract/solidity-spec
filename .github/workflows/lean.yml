@@ -1,0 +1,53 @@
+name: Solidity Spec
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: semantics-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  semantics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out revision without credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pinned Lean 4.29.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(cat lean-toolchain)" = 'leanprover/lean4:v4.29.0'
+          task_tools="$RUNNER_TEMP/solidity-spec-tools"
+          mkdir -p "$task_tools/lean" evidence
+          (
+            cd "$task_tools"
+            curl -fL --retry 3 https://github.com/leanprover/lean4/releases/download/v4.29.0/lean-4.29.0-linux.tar.zst -o lean.tar.zst
+            echo '089f7e513ed3e9436d191f4986330c0b53809c86b5997f5eb7f25550c374fa48  lean.tar.zst' | sha256sum -c -
+            tar --zstd -xf lean.tar.zst --strip-components=1 -C lean
+            lean/bin/lean --version
+          ) 2>&1 | tee evidence/toolchain.log
+          echo "$task_tools/lean/bin" >> "$GITHUB_PATH"
+
+      - name: Build and replay proofs
+        shell: bash
+        run: |
+          set -euo pipefail
+          make replay JOBS=4 2>&1 | tee evidence/replay.log
+
+      - name: Retain diagnostics
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: solidity-spec-${{ github.run_id }}-${{ github.run_attempt }}
+          path: evidence/
+          if-no-files-found: warn
