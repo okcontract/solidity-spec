@@ -1,15 +1,20 @@
 \documentclass[conference]{IEEEtran}
 \usepackage[T1]{fontenc}
+\usepackage[narrow]{inconsolata}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs,tabularx,array}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Solidity Semantics for Compiler Verification},pdfauthor={OKcontract}}
-\Urlmuskip=0mu plus 2mu\relax
+\Urlmuskip=0mu\relax
 \newcommand{\W}{\mathbb W}
 \newcommand{\N}{\mathbb N}
 \newcommand{\eval}[1]{\mathopen{[\![}#1\mathclose{]\!]}}
-\newcommand{\src}[1]{\path{#1}}
+\DeclareUrlCommand\src{%
+  \urlstyle{tt}%
+  \useOriginalUrlSetting
+  \Urlmuskip=0mu\relax
+}
 \newcommand{\code}[1]{\texttt{#1}}
 \newtheorem{proposition}{Proposition}
 \title{Solidity Semantics for Compiler Verification:\\Effect Orders, Physical Aliases, and Observations}
@@ -278,9 +283,9 @@ sequential statements retain their required order. The raw machine still
 represents the original order-dependent inconclusive schedules.
 
 The lightweight import \src{Solidity.Execution} exposes checked entries,
-the machine and its execution facade. Additional execution laws are available
-through \src{Solidity.Execution.Proofs}; admitted-state safety is imported
-through \src{Solidity.Execution.Safety}. Compatibility clients use
+the machine and its execution facade. Its \src{Proofs} submodule provides
+additional execution laws, and \src{Safety} exports admitted-state safety.
+Compatibility clients use
 \src{Solidity.Compatibility.Execution}; the comprehensive \src{Solidity}
 umbrella includes all four interfaces. Indexed checked entries retain
 the admission equations. Their projection proofs preserve the facade,
