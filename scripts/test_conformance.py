@@ -3,10 +3,27 @@
 // Copyright (C) 2026 OKcontract Pte. Ltd.
 """
 import unittest
-from check_conformance import CASES, ModelFailure, call_outcome, model_outcome, select
+from check_conformance import CASES, ModelFailure, call_outcome, check_rejection, model_outcome, select
 
 
 class ConformanceControls(unittest.TestCase):
+    def test_static_rejection_requires_admission_even_for_unreachable_code(self):
+        control = dict(admission='rejected', unreachableAdmission='rejected', modelError='rejected',
+                       diagnostics=[{'type': 'TypeError', 'errorCode': '7366'}],
+                       unreachableOutcome={'status': 'returned', 'word': '0'})
+        check_rejection(control)
+        for field in ('admission', 'unreachableAdmission'):
+            for result in ('admitted', 'exhausted', 'unsupported:type', None):
+                with self.subTest(field=field, result=result), self.assertRaisesRegex(ValueError, 'static rejection'):
+                    check_rejection(dict(control, **{field: result}))
+            missing = dict(control)
+            del missing[field]
+            with self.assertRaisesRegex(ValueError, 'static rejection'):
+                check_rejection(missing)
+        for outcome in ({'status': 'reverted', 'bytes': []}, {'status': 'returned', 'word': '1'}):
+            with self.subTest(outcome=outcome), self.assertRaisesRegex(ValueError, 'did not return zero'):
+                check_rejection(dict(control, unreachableOutcome=outcome))
+
     def test_rpc_errors_cannot_become_source_reverts(self):
         for response in ({'error': {'code': -32000, 'data': '0x'}},
                          {'result': '0x', 'error': {'code': 3, 'data': '0x'}},

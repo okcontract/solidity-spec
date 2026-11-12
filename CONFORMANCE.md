@@ -24,9 +24,12 @@ must belong to the finite set of exported permitted schedule witnesses. That
 set need not enumerate every possible schedule: a mismatch requires examining
 the pairing and schedule coverage before concluding that the semantics differ.
 
-Three static rejection controls compare compiler diagnostics with model
-rejections. Two model resource controls distinguish host exhaustion from source
-revert. Unsupported execution, failed admission, compiler rejection, RPC errors,
+Three static rejection controls compare compiler diagnostics with direct
+`Admission.checkFunction` rejections and retain runtime model rejection separately.
+Each control also checks admission with the invalid body in an unreachable branch;
+raw execution of that variant must return zero, demonstrating why execution alone
+cannot establish static rejection. Two model resource controls distinguish host
+exhaustion from source revert. Unsupported execution, failed admission, compiler rejection, RPC errors,
 host exhaustion, and runtime revert remain separate outcomes.
 
 Each runtime probe uses `eth_call` against unchanged initial contract storage.

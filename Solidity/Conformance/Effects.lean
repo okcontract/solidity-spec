@@ -16,7 +16,8 @@ open Static Core Execution Aggregates Lean
 open Contract.Interaction (Word wordBytes)
 
 private def registry : Registry := {
-  enumerations := fun _ => none, valueTypes := fun _ => none,
+  enumerations := fun _ => none,
+  valueTypes := fun identity => if identity == 0 then some (.scalar (.uint 0)) else none,
   contracts := fun _ => none, structures := fun identity => identity < 2,
   structFields := fun
     | 0 => some [("a", .uint 31), ("b", .uint 31)]
@@ -388,10 +389,34 @@ private def deleteNominal : Stmt EmptyKey :=
   seq [declare 0 (.literal ⟨type, 1#8⟩) type, .expr (.update .delete (target 0 type)), ret (n 0)]
 private def badAddressInc : Stmt EmptyKey := seq [declare 0 (.literal ⟨.address false, 0⟩) (.address false),
   .expr (.update (.inc false) (target 0 (.address false))), ret (n 0)]
+private def admissionResult (model : Stmt EmptyKey) : String :=
+  match Admission.checkFunction registry 128
+      {parameters := [], returns := [binder 999], body := model} with
+  | .ok () => "admitted"
+  | .error failure => failureName failure
+private def unreachable (model : Stmt EmptyKey) : Stmt EmptyKey :=
+  .if_ (truth false) (.block model) (ret (n 0))
+
+set_option maxRecDepth 16384 in
+example : [rejected, deleteNominal, badAddressInc].map admissionResult =
+    ["rejected", "rejected", "rejected"] := by decide +kernel
+
+set_option maxRecDepth 16384 in
+example : [rejected, deleteNominal, badAddressInc].map (admissionResult ∘ unreachable) =
+    ["rejected", "rejected", "rejected"] := by decide +kernel
+
+/-- The nominal declaration itself is valid, so the delete control tests the operation. -/
+example : admissionResult (seq [
+    declare 0 (.literal ⟨.valueType 0 (.scalar (.uint 0)), 1#8⟩) (.valueType 0 (.scalar (.uint 0))),
+    ret (n 0)]) = "admitted" := by decide +kernel
+
 private def rejection (name body code message : String) (model : Stmt EmptyKey) : Json :=
   let result := match execute model with
-    | .finished (.inconclusive .rejected _) => toJson "staticRejected" | _ => Json.null
+    | .finished (.inconclusive .rejected _) => toJson "rejected" | _ => Json.null
   Json.mkObj [("name",toJson name),("body",toJson body),("modelError",result),
+    ("admission",toJson (admissionResult model)),
+    ("unreachableAdmission",toJson (admissionResult (unreachable model))),
+    ("unreachableOutcome",observed (execute (unreachable model))),
     ("diagnostics",toJson [Json.mkObj [("type",toJson "TypeError"),("errorCode",toJson code),("message",toJson message)]])]
 private def rejections : List Json := [
   rejection "compound_narrowing" "uint8 a=1; a+=uint16(1); return a;" "7366"

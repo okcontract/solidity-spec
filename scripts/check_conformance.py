@@ -75,6 +75,15 @@ def select(core):
     return cases
 
 
+def check_rejection(control):
+    if (control.get('admission') != 'rejected' or
+            control.get('unreachableAdmission') != 'rejected' or
+            control.get('modelError') != 'rejected' or not control.get('diagnostics')):
+        raise ValueError('invalid static rejection control')
+    if model_outcome(control['unreachableOutcome']) != {'status': 'returned', 'bytes': '0x' + '00' * 32}:
+        raise ValueError('unreachable rejection control did not return zero')
+
+
 class Rpc:
     def __init__(self, port, output):
         self.url, self.output, self.serial = f'http://127.0.0.1:{port}', output, 0
@@ -151,13 +160,14 @@ def run(args, report):
     declarations = core['declarations']
     report['rejectionControls'] = []
     for rejected in core['rejections']:
-        if rejected['modelError'] != 'staticRejected' or not rejected['diagnostics']:
-            raise ValueError('invalid static rejection control')
+        check_rejection(rejected)
         rejected_source = ('pragma solidity ' + profile['solidityVersion'] + ';\ncontract C {\n' + declarations +
                            'function probe() external returns(uint256) { ' + rejected['body'] + ' }\n}\n')
         response = compile_source(args.solc, profile, rejected_source, True, False, output, 'reject-' + rejected['name'])
         errors = [e for e in response.get('errors', []) if e['severity'] == 'error']
-        row = {'name': rejected['name'], 'modelRejected': True, 'compilerDiagnostics': errors}
+        row = {'name': rejected['name'], 'modelRejected': True, 'compilerDiagnostics': errors,
+               'admission': rejected['admission'], 'unreachableAdmission': rejected['unreachableAdmission'],
+               'unreachableOutcome': rejected['unreachableOutcome']}
         report['rejectionControls'].append(row)
         save(output / 'report.json', report)
         if not all(any(e.get('errorCode') == expected['errorCode'] and e['type'] == expected['type']
