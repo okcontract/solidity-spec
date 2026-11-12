@@ -42,7 +42,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          make replay JOBS=4 2>&1 | tee evidence/replay.log
+          make replay JOBS=4 \
+            THEOREM_AUDIT_OUTPUT="evidence/theorem-audit-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            2>&1 | tee evidence/replay.log
 
       - name: Retain diagnostics
         if: always()

@@ -1,6 +1,7 @@
 LAKE ?= lake
 TECTONIC ?= tectonic
 JOBS ?= 4
+THEOREM_AUDIT_OUTPUT ?=
 
 .PHONY: check manifest replay paper clean
 check:
@@ -8,7 +9,7 @@ check:
 
 manifest: check
 	python3 -m unittest discover -s scripts -p 'test_*.py'
-	python3 scripts/check_theorems.py
+	python3 scripts/check_theorems.py $(if $(THEOREM_AUDIT_OUTPUT),--output "$(THEOREM_AUDIT_OUTPUT)")
 
 replay: manifest
 	@set -e; for module in Solidity \

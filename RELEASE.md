@@ -29,6 +29,13 @@ For an explicit installation, prepend the Lean 4.29.0 `bin` directory to
 requires no external Lean packages. Manifest checks require Python 3's standard
 library; proof checking does not require a Solidity compiler.
 
+Set `THEOREM_AUDIT_OUTPUT` when invoking `make manifest` or `make replay` to retain
+the generated audit source, build/audit stdout and stderr, process exit codes,
+and completed audit report in a chosen directory. The directory must be new;
+omitting the variable keeps the checker's temporary-directory default. CI uses
+`evidence/theorem-audit-<run-id>-<attempt>` so the existing diagnostic upload
+retains these files, including partial output after a failed audit.
+
 Run the separate [external conformance checks](CONFORMANCE.md) with the exact
 pinned Solidity compiler and Anvil. They compare 14 selected effect cases under
 both IR optimizer settings and exercise legacy copy-timing boundary controls.
