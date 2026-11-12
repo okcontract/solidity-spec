@@ -43,8 +43,9 @@ def model_outcome(value):
         return {'status': 'returned', 'bytes': '0x' + int(value['word']).to_bytes(32, 'big').hex()}
     if value['status'] == 'reverted':
         return {'status': 'reverted', 'bytes': '0x' + bytes(value['bytes']).hex()}
-    category = 'hostExhaustions' if value.get('reason') in ('exhausted', 'targetResource') else 'modelUnsupported'
-    raise ModelFailure(category, 'unsupported or exhausted model execution: ' + str(value))
+    category = {'exhausted': 'hostExhaustions', 'targetResource': 'targetResourceFailures'}.get(
+        value.get('reason'), 'modelUnsupported')
+    raise ModelFailure(category, 'model execution failed: ' + str(value))
 
 
 def call_outcome(response):
@@ -146,7 +147,8 @@ def run(args, report):
         if core[key] != profile[key]:
             raise ValueError('model target mismatch')
     report['counts'] = dict(compilerRejections=0, modelRejections=0, modelUnsupported=0,
-                          hostExhaustions=0, runtimeReturns=0, runtimeReverts=0, discrepancies=0)
+                          hostExhaustions=0, targetResourceFailures=0,
+                          runtimeReturns=0, runtimeReverts=0, discrepancies=0)
     try:
         cases = select(core)
     except ModelFailure as error:

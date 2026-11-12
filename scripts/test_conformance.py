@@ -35,8 +35,8 @@ class ConformanceControls(unittest.TestCase):
         self.assertEqual(call_outcome({'error': {'code': 3, 'data': '0xab'}}),
                          {'status': 'reverted', 'bytes': '0xab'})
 
-    def test_model_exhaustion_and_unsupported_are_distinct_failures(self):
-        for reason, category in [('exhausted', 'hostExhaustions'), ('targetResource', 'hostExhaustions'),
+    def test_host_target_and_unsupported_are_distinct_failures(self):
+        for reason, category in [('exhausted', 'hostExhaustions'), ('targetResource', 'targetResourceFailures'),
                                  ('unsupported:reference', 'modelUnsupported')]:
             with self.assertRaises(ModelFailure) as error:
                 model_outcome({'status': 'modelFailure', 'reason': reason})
@@ -52,7 +52,8 @@ class ConformanceControls(unittest.TestCase):
         cases = [dict(name=name, admitted=True, outcomes=[dict(status='returned', word='1')]) for name in CASES]
         self.assertEqual(len(select({'cases': cases})), len(CASES))
         for fields in ({'admitted': False}, {'outcomes': []},
-                       {'outcomes': [dict(status='modelFailure', reason='exhausted')]}):
+                       {'outcomes': [dict(status='modelFailure', reason='exhausted')]},
+                       {'outcomes': [dict(status='modelFailure', reason='targetResource')]}):
             changed = [dict(case) for case in cases]
             changed[0].update(fields)
             with self.assertRaises(ModelFailure):

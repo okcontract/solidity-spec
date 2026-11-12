@@ -29,8 +29,11 @@ Three static rejection controls compare compiler diagnostics with direct
 Each control also checks admission with the invalid body in an unreachable branch;
 raw execution of that variant must return zero, demonstrating why execution alone
 cannot establish static rejection. Two model resource controls distinguish host
-exhaustion from source revert. Unsupported execution, failed admission, compiler rejection, RPC errors,
-host exhaustion, and runtime revert remain separate outcomes.
+exhaustion from source revert. Unsupported execution, failed admission, compiler
+rejection, RPC errors, host exhaustion, target-resource failure, and runtime revert
+remain separate outcomes. Target-resource failures have their own
+`targetResourceFailures` counter and fail the check; the current `Machine.step`
+corpus does not produce them.
 
 Each runtime probe uses `eth_call` against unchanged initial contract storage.
 Reverting probes additionally run as transactions: their receipt must report
